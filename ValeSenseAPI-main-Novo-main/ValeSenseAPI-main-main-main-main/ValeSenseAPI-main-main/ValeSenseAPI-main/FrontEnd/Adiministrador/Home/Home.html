@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../role-visual.css">
 </head>
-<body data-login-path="../../Analista_de_dados/Login/Login.html">
+<body data-login-path="../Login/Login.html">
   <header class="topbar">
     <div class="brand"><img class="brand-logo" src="../assets/Logo.svg" alt="">ValeSense</div>
     <span class="role-label">&#193;rea do administrador</span>
@@ -27,21 +27,22 @@
     <aside class="sidebar">
       <nav class="admin-nav" aria-label="Navegação administrativa">
         <details class="nav-group" open>
-          <summary>Administrador</summary>
+          <summary>Minha conta</summary>
           <a href="Home.html" class="nav-item active" aria-current="page">Visão geral</a>
           <a href="#usuarios" class="nav-item">Usuários</a>
           <a href="../Sensores/Sensores.html" class="nav-item">Sensores</a>
           <a href="../Registros/Registros.html" class="nav-item">Registros de acesso</a>
         </details>
         <details class="nav-group">
-          <summary>Monitoramento ambiental</summary>
-          <a href="../Monitoramento/Dashboard/Dashboard.html" class="nav-item">Dashboard climático</a>
-          <a href="../Monitoramento/Registro/Registro.html" class="nav-item">Histórico de leituras</a>
+          <summary>Monitoramento (área do administrador)</summary>
+          <a href="../Monitoramento/Dashboard/Dashboard.html#home" class="nav-item">Dashboard climático</a>
+          <a href="../Monitoramento/Dashboard/Dashboard.html#sensores" class="nav-item">Sensores monitorados</a>
           <a href="../Monitoramento/Mapas/Mapas.html" class="nav-item">Mapas</a>
+          <a href="../Monitoramento/Registro/Registro.html" class="nav-item">Histórico de leituras</a>
           <a href="../Monitoramento/Frutas/Frutas.html" class="nav-item">Frutas</a>
         </details>
         <details class="nav-group">
-          <summary>Operação agrícola</summary>
+          <summary>Operação agrícola (área do administrador)</summary>
           <a href="../Operacao/Home/Home.html" class="nav-item">Resumo operacional</a>
           <a href="../Operacao/Plantacoes/Plantacoes.html" class="nav-item">Plantações</a>
           <a href="../Operacao/Colheita/Colheita.html" class="nav-item">Janelas de safra</a>
@@ -73,16 +74,6 @@
             <div id="monitorAlertList" class="monitor-list"><p>Carregando alertas...</p></div>
           </article>
         </div>
-
-        <article class="card quick-access">
-          <h2 class="card-label">Acesso r&aacute;pido</h2>
-          <div class="quick-links">
-            <a class="quick-link" href="../Monitoramento/Dashboard/Dashboard.html">Monitoramento clim&aacute;tico</a>
-            <a class="quick-link" href="../Monitoramento/Mapas/Mapas.html">Mapas</a>
-            <a class="quick-link" href="../Operacao/Home/Home.html">Opera&ccedil;&atilde;o agr&iacute;cola</a>
-            <a class="quick-link" href="../Registros/Registros.html">Registros de acesso</a>
-          </div>
-        </article>
 
         <article class="card" id="usuarios">
           <div class="card-header-row">

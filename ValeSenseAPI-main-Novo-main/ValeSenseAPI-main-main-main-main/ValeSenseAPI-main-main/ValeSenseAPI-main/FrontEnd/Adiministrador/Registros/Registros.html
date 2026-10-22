@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValeSense — Registros</title>
+  <link rel="stylesheet" href="../Home/Home.css">
+  <link rel="stylesheet" href="../../painel-compacto.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../role-visual.css">
+</head>
+<body data-login-path="../../Analista_de_dados/Login/Login.html">
+  <div class="topbar">
+    <div class="brand">
+      <img class="brand-logo" src="../assets/Logo.svg" alt="ValeSense">
+      ValeSense
+    </div><span class="role-label">&#193;rea do administrador</span>
+    <div class="topbar-actions">
+      <a class="icon-btn" href="../Configurações/Configuracoes.html" aria-label="Configurações" title="Configurações">
+        <img class="action-icon" src="../assets/Config.svg" alt="">
+      </a>
+      <button class="icon-btn" id="scrollTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <img class="action-icon" src="../assets/Seta.svg" alt="">
+      </button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar modo escuro" title="Ativar modo escuro" aria-pressed="false">
+        <img data-theme-icon src="../assets/Lua.svg" alt="">
+      </button>
+    <button class="icon-btn logout-action" type="button" data-logout aria-label="Sair" title="Sair"><img class="logout-icon" src="../assets/Sair.svg" alt=""><span>Sair</span></button></div>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav class="admin-nav" aria-label="Navegação administrativa"><details class="nav-group" open><summary>Administrador</summary><a href="../Home/Home.html" class="nav-item">Visão geral</a><a href="../Home/Home.html" class="nav-item">Usuários</a><a href="../Sensores/Sensores.html" class="nav-item">Sensores</a><a href="../Registros/Registros.html" class="nav-item active" aria-current="page">Registros de acesso</a></details><details class="nav-group"><summary>Monitoramento ambiental</summary><a href="../Monitoramento/Dashboard/Dashboard.html" class="nav-item">Dashboard climático</a><a href="../Monitoramento/Registro/Registro.html" class="nav-item">Histórico de leituras</a><a href="../Monitoramento/Mapas/Mapas.html" class="nav-item">Mapas</a><a href="../Monitoramento/Frutas/Frutas.html" class="nav-item">Frutas</a></details><details class="nav-group"><summary>Operação agrícola</summary><a href="../Operacao/Home/Home.html" class="nav-item">Resumo operacional</a><a href="../Operacao/Plantacoes/Plantacoes.html" class="nav-item">Plantações</a><a href="../Operacao/Colheita/Colheita.html" class="nav-item">Janelas de safra</a><a href="../Operacao/Mercado/Mercado.html" class="nav-item">Mercado</a><a href="../Operacao/Alertas/Alertas.html" class="nav-item">Alertas</a></details></nav>
+    </aside>
+
+    <main class="content">
+      <section class="page-section">
+        <h1 class="page-title">
+          <img class="page-title-icon" src="../assets/Lupa.svg" alt="">
+          Registros
+        </h1>
+        <p class="section-subtitle">Histórico detalhado das ações realizadas no sistema.</p>
+
+        <div class="card">
+          <p class="card-label">Alertas que exigem ação</p>
+          <div class="alert-row danger" id="loginAlert" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="12" y1="10" x2="12" y2="14" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="17" r="1" fill="currentColor"/></svg>
+            <div>
+              <p class="alert-title" id="loginAlertTitle"></p>
+              <p class="alert-sub" id="loginAlertSub"></p>
+            </div>
+          </div>
+          <p id="loginAlertEmpty" hidden>Nenhuma tentativa de login com falha registrada.</p>
+        </div>
+
+        <div class="card table-card">
+          <div class="table-toolbar">
+            <div class="filter-group">
+              <select id="filtroAcao" aria-label="Filtrar por categoria">
+                <option value="todas">Todas as ações</option>
+                <option value="sensor">Sensores</option>
+                <option value="usuario">Usuários</option>
+                <option value="seguranca">Segurança</option>
+              </select>
+              <input type="date" id="filtroData" aria-label="Filtrar por data">
+            </div>
+            <button id="exportRegistrosBtn" class="btn-outline">Exportar CSV</button>
+          </div>
+
+          <div class="table-scroll">
+            <table class="sheet-table" id="tabelaRegistros">
+              <thead>
+                <tr>
+                  <th>Data/Hora</th>
+                  <th>Usuário</th>
+                  <th>Ação</th>
+                  <th>Alvo</th>
+                  <th>Detalhes</th>
+                  <th>Categoria</th>
+                </tr>
+              </thead>
+              <tbody id="accessLogBody">
+                <tr><td colspan="6">Carregando registros...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../theme.js"></script>
+  <script src="../../api-config.js"></script>
+  <script src="../../api-client.js"></script>
+  <script src="../auth-guard.js"></script>
+  <script src="Registros.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValeSense | Administrador</title>
+  <link rel="stylesheet" href="Home.css">
+  <link rel="stylesheet" href="../../painel-compacto.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../role-visual.css">
+</head>
+<body data-login-path="../../Analista_de_dados/Login/Login.html">
+  <header class="topbar">
+    <div class="brand"><img class="brand-logo" src="../assets/Logo.svg" alt="">ValeSense</div>
+    <span class="role-label">&#193;rea do administrador</span>
+    <div class="topbar-actions">
+      <a class="icon-btn" href="../Configurações/Configuracoes.html" aria-label="Configurações" title="Configurações"><img class="action-icon" src="../assets/Config.svg" alt=""></a>
+      <button class="icon-btn" id="scrollTopBtn" type="button" aria-label="Voltar ao topo" title="Voltar ao topo"><img class="action-icon" src="../assets/Seta.svg" alt=""></button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar tema" title="Alternar tema" aria-pressed="false"><img data-theme-icon src="../assets/Lua.svg" alt=""></button>
+      <button class="icon-btn logout-action" type="button" data-logout aria-label="Sair" title="Sair"><img class="logout-icon" src="../assets/Sair.svg" alt=""><span>Sair</span></button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav class="admin-nav" aria-label="Navegação administrativa">
+        <details class="nav-group" open>
+          <summary>Administrador</summary>
+          <a href="Home.html" class="nav-item active" aria-current="page">Visão geral</a>
+          <a href="#usuarios" class="nav-item">Usuários</a>
+          <a href="../Sensores/Sensores.html" class="nav-item">Sensores</a>
+          <a href="../Registros/Registros.html" class="nav-item">Registros de acesso</a>
+        </details>
+        <details class="nav-group">
+          <summary>Monitoramento ambiental</summary>
+          <a href="../Monitoramento/Dashboard/Dashboard.html" class="nav-item">Dashboard climático</a>
+          <a href="../Monitoramento/Registro/Registro.html" class="nav-item">Histórico de leituras</a>
+          <a href="../Monitoramento/Mapas/Mapas.html" class="nav-item">Mapas</a>
+          <a href="../Monitoramento/Frutas/Frutas.html" class="nav-item">Frutas</a>
+        </details>
+        <details class="nav-group">
+          <summary>Operação agrícola</summary>
+          <a href="../Operacao/Home/Home.html" class="nav-item">Resumo operacional</a>
+          <a href="../Operacao/Plantacoes/Plantacoes.html" class="nav-item">Plantações</a>
+          <a href="../Operacao/Colheita/Colheita.html" class="nav-item">Janelas de safra</a>
+          <a href="../Operacao/Mercado/Mercado.html" class="nav-item">Mercado</a>
+          <a href="../Operacao/Alertas/Alertas.html" class="nav-item">Alertas</a>
+        </details>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section class="page-section" aria-labelledby="admin-title">
+        <h1 class="page-title" id="admin-title"><img class="page-title-icon" src="../assets/Dashboard.svg" alt="">Visão geral</h1>
+        <p class="section-subtitle">Acompanhe usuários, sensores, leituras e alertas em um só lugar.</p>
+
+        <div class="monitor-kpis">
+          <article class="card monitor-kpi"><span>Usuários ativos</span><strong id="activeUsersCount">--</strong></article>
+          <article class="card monitor-kpi"><span>Sensores ativos</span><strong id="activeSensorsCount">--</strong></article>
+          <article class="card monitor-kpi"><span>Leituras nas últimas 24 horas</span><strong id="readingsCount">--</strong></article>
+          <article class="card monitor-kpi"><span>Alertas em aberto</span><strong id="openAlertsCount">--</strong></article>
+        </div>
+
+        <div class="monitor-grid">
+          <article class="card">
+            <div class="card-header-row"><h2 class="card-label">Sensores recentes</h2><a class="link-secondary" href="../Sensores/Sensores.html">Ver sensores</a></div>
+            <div id="monitorSensorList" class="monitor-list"><p>Carregando sensores...</p></div>
+          </article>
+          <article class="card">
+            <div class="card-header-row"><h2 class="card-label">Alertas recentes</h2><a class="link-secondary" href="../Operacao/Alertas/Alertas.html">Ver alertas</a></div>
+            <div id="monitorAlertList" class="monitor-list"><p>Carregando alertas...</p></div>
+          </article>
+        </div>
+
+        <article class="card quick-access">
+          <h2 class="card-label">Acesso r&aacute;pido</h2>
+          <div class="quick-links">
+            <a class="quick-link" href="../Monitoramento/Dashboard/Dashboard.html">Monitoramento clim&aacute;tico</a>
+            <a class="quick-link" href="../Monitoramento/Mapas/Mapas.html">Mapas</a>
+            <a class="quick-link" href="../Operacao/Home/Home.html">Opera&ccedil;&atilde;o agr&iacute;cola</a>
+            <a class="quick-link" href="../Registros/Registros.html">Registros de acesso</a>
+          </div>
+        </article>
+
+        <article class="card" id="usuarios">
+          <div class="card-header-row">
+            <h2 class="card-label">Usu&aacute;rios e permiss&otilde;es</h2>
+            <button id="addUserBtn" class="btn-primary btn-small" type="button"><img src="../assets/Lapis.svg" alt="" aria-hidden="true">Novo usu&aacute;rio</button>
+          </div>
+          <div class="table-scroll">
+            <table id="userTableBodyTable" class="user-table">
+              <thead><tr><th>Nome</th><th>Perfil</th><th>Status</th><th>A&ccedil;&otilde;es</th></tr></thead>
+              <tbody id="userTableBody"><tr><td colspan="4">Carregando usu&aacute;rios...</td></tr></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../theme.js"></script>
+  <script src="../../api-config.js"></script>
+  <script src="../../api-client.js"></script>
+  <script src="../auth-guard.js"></script>
+  <script src="Home.js"></script>
+</body>
+</html>

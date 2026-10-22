@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValeSense - Configuracoes</title>
+  <link rel="stylesheet" href="Configuracoes.css">
+  <link rel="stylesheet" href="../../painel-compacto.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../role-visual.css">
+</head>
+<body data-login-path="../../Analista_de_dados/Login/Login.html">
+  <div class="topbar">
+    <div class="brand"><img class="brand-logo" src="../assets/Logo.svg" alt="ValeSense" />ValeSense</div><span class="role-label">&#193;rea do administrador</span>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="scrollTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo"><img src="../assets/Seta.svg" alt=""></button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar modo escuro" title="Ativar modo escuro" aria-pressed="false">
+        <img data-theme-icon src="../assets/Lua.svg" alt="">
+      </button>
+    <button class="icon-btn logout-action" type="button" data-logout aria-label="Sair" title="Sair"><img class="logout-icon" src="../assets/Sair.svg" alt=""><span>Sair</span></button></div>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav class="admin-nav" aria-label="Navegação administrativa"><details class="nav-group" open><summary>Administrador</summary><a href="../Home/Home.html" class="nav-item">Visão geral</a><a href="../Home/Home.html" class="nav-item">Usuários</a><a href="../Sensores/Sensores.html" class="nav-item">Sensores</a><a href="../Registros/Registros.html" class="nav-item">Registros de acesso</a><a href="../Configurações/Configuracoes.html" class="nav-item active" aria-current="page">Configurações</a></details><details class="nav-group"><summary>Monitoramento ambiental</summary><a href="../Monitoramento/Dashboard/Dashboard.html" class="nav-item">Dashboard climático</a><a href="../Monitoramento/Registro/Registro.html" class="nav-item">Histórico de leituras</a><a href="../Monitoramento/Mapas/Mapas.html" class="nav-item">Mapas</a><a href="../Monitoramento/Frutas/Frutas.html" class="nav-item">Frutas</a></details><details class="nav-group"><summary>Operação agrícola</summary><a href="../Operacao/Home/Home.html" class="nav-item">Resumo operacional</a><a href="../Operacao/Plantacoes/Plantacoes.html" class="nav-item">Plantações</a><a href="../Operacao/Colheita/Colheita.html" class="nav-item">Janelas de safra</a><a href="../Operacao/Mercado/Mercado.html" class="nav-item">Mercado</a><a href="../Operacao/Alertas/Alertas.html" class="nav-item">Alertas</a></details></nav>
+    </aside>
+
+    <main class="content">
+      <h1 class="page-title"><img src="../assets/Config.svg" alt="">Configuracoes</h1>
+      <p class="page-subtitle">Preferencias de exibicao e seguranca do painel administrativo.</p>
+
+      <section class="card">
+        <h2>Seguranca</h2>
+        <p>As sessoes sao encerradas ao sair ou retornar pelas setas do navegador. O acesso exige autenticacao novamente.</p>
+        <div class="security-line"><span class="security-dot"></span>Protecao de sessao ativa</div>
+      </section>
+
+      <a class="back-link" href="../Home/Home.html">Voltar para Home</a>
+    </main>
+  </div>
+
+  <script src="../../theme.js"></script>
+  <script src="../auth-guard.js"></script>
+  <script src="Configuracoes.js"></script>
+</body>
+</html>

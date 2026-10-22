@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ValeSense — Configurações</title>
+<link rel="stylesheet" href="Configuracoes.css">
+<link rel="stylesheet" href="../../painel-compacto.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../role-visual.css">
+</head>
+<body data-login-path="../Login/Login.html">
+
+<div class="topbar">
+  <div class="brand"><img class="brand-logo" src="../Dashboard/assets/Logo.svg" alt="ValeSense" />ValeSense</div><span class="role-label">&#193;rea do analista de dados</span>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="scrollTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo"><img class="action-icon" src="../Dashboard/assets/Seta.svg" alt=""></button>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar modo escuro" title="Ativar modo escuro" aria-pressed="false">
+      <img data-theme-icon src="../Dashboard/assets/Lua.svg" alt="">
+    </button>
+  <button class="icon-btn logout-action" type="button" data-logout aria-label="Sair" title="Sair"><img class="logout-icon" src="../Dashboard/assets/Sair.svg" alt=""><span>Sair</span></button></div>
+</div>
+
+<div class="layout">
+<aside class="sidebar">
+  <nav class="nav-group">
+    <a class="nav-item" href="../Dashboard/Dashboard.html#home"><img class="nav-icon" src="../Dashboard/assets/Home.svg" alt="">Home</a>
+    <a class="nav-item" href="../Dashboard/Dashboard.html#dashboard"><img class="nav-icon" src="../Dashboard/assets/Dashboard.svg" alt="">Dashboard</a>
+    <a class="nav-item" href="../Dashboard/Dashboard.html#sensores"><img class="nav-icon" src="../Dashboard/assets/Alerta.svg" alt="">Sensores</a>
+    <a class="nav-item" href="../Mapas/Mapas.html"><img class="nav-icon" src="../Dashboard/assets/Maps.svg" alt="">Mapa</a>
+    <a class="nav-item" href="../Registro/Registro.html"><img class="nav-icon" src="../Dashboard/assets/Lupa.svg" alt="">Registros</a>
+    <a class="nav-item" href="../Frutas/Frutas.html"><img class="nav-icon" src="../Dashboard/assets/Fruta.svg" alt="">Frutas</a>
+  </nav>
+</aside>
+
+<main>
+  <h1 class="page-title"><img class="page-title-icon" src="../Dashboard/assets/Config.svg" alt="">Configurações</h1>
+  <p class="page-subtitle">Preferências de exibição, alertas e canais usados no Dashboard.</p>
+
+  <!-- Exibição -->
+  <div class="card">
+    <h2>Exibição</h2>
+    <p class="hint">Como os dados aparecem no Dashboard e na Home.</p>
+
+    <div class="settings-row">
+      <div><div class="label">Unidade de temperatura</div></div>
+      <select id="unidade-temp">
+        <option value="c">Celsius (°C)</option>
+        <option value="f">Fahrenheit (°F)</option>
+      </select>
+    </div>
+
+    <div class="settings-row">
+      <div><div class="label">Formato padrão de exportação</div></div>
+      <select id="formato-export">
+        <option value="csv">CSV</option>
+        <option value="xlsx">Excel (.xlsx)</option>
+      </select>
+    </div>
+
+  </div>
+
+  <!-- Alertas -->
+  <div class="card">
+    <h2>Alertas</h2>
+    <p class="hint">Notificações relacionadas à qualidade da previsão e aos sensores.</p>
+
+    <div class="settings-row">
+      <div>
+        <div class="label">Divergência previsto x real</div>
+        <div class="desc">Avisar quando a diferença entre previsto e real ultrapassar o limite abaixo.</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="alerta-divergencia" checked>
+        <span class="slider-toggle"></span>
+      </label>
+    </div>
+    <div class="settings-row">
+      <div><div class="label">Limite de divergência (%)</div></div>
+      <input type="number" id="limite-divergencia" value="15" min="1" max="100" style="width:80px">
+    </div>
+
+    <div class="settings-row">
+      <div>
+        <div class="label">Sensor com falha</div>
+        <div class="desc">Avisar quando um sensor parar de entregar leituras.</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="alerta-sensor" checked>
+        <span class="slider-toggle"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Canais ThingSpeak -->
+  <div class="card">
+    <h2>Canais ThingSpeak</h2>
+    <p class="hint">Canais vinculados aos sensores cadastrados no banco de dados.</p>
+    <div id="canais-lista"></div>
+  </div>
+
+  <!-- Atualização -->
+  <div class="card">
+    <h2>Atualização automática</h2>
+    <p class="hint">Com que frequência os dados são atualizados automaticamente.</p>
+    <div class="settings-row">
+      <div><div class="label">Frequência</div></div>
+      <select id="freq-atualizacao">
+        <option value="0">Manual (sem atualização automática)</option>
+        <option value="60">A cada 1 minuto</option>
+        <option value="300" selected>A cada 5 minutos</option>
+        <option value="900">A cada 15 minutos</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="save-bar">
+    <span class="save-msg" id="save-msg">Preferências salvas</span>
+    <button class="btn primary" id="salvar-btn">Salvar alterações</button>
+  </div>
+</main>
+</div>
+
+<script src="../../theme.js"></script>
+<script src="../../api-config.js"></script>
+<script src="../../api-client.js"></script>
+<script src="../auth-guard.js"></script>
+<script src="Configuracoes.js"></script>
+</body>
+</html>

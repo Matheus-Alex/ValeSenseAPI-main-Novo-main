@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ValeSense — Login</title>
+  <link rel="stylesheet" href="Login.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../role-visual.css">
+</head>
+<body>
+
+  <div class="login-screen">
+
+    <div class="login-panel">
+      <div class="login-card">
+
+        <div class="login-card-image">
+          <img src="../Dashboard/assets/Agricultor-login.png" alt="Agricultor colhendo uvas no vinhedo" />
+        </div>
+
+        <div class="login-card-form">
+
+          <img class="login-logo" src="../Dashboard/assets/Logo.svg" alt="ValeSense" />
+          <h1>Login</h1>
+
+          <form id="loginForm" novalidate>
+
+            <div class="field">
+              <div class="input-icon-wrap">
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="username" />
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <circle cx="12" cy="8" r="4" fill="currentColor"/>
+                <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="currentColor"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="input-icon-wrap">
+                <input type="password" id="senha" name="senha" placeholder="Sua senha" required autocomplete="current-password" />
+                <button type="button" class="password-toggle" aria-label="Mostrar senha">
+                  <svg class="password-icon icon-eye" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <svg class="password-icon icon-eye-off" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M3 3l18 18M10.6 10.6a2 2 0 0 0 2.8 2.8M9.9 5.2A10.7 10.7 0 0 1 12 5c7 0 11 7 11 7a20.3 20.3 0 0 1-3.1 3.8M6.2 6.2C3.2 8.2 1 12 1 12s4 7 11 7a10.8 10.8 0 0 0 3.8-.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <p id="errorMessage" class="error-message" role="alert"></p>
+
+            <div class="field-row-between">
+              <label class="checkbox-row">
+                <input type="checkbox" id="continuarLogado" name="continuarLogado" />
+                Lembrar senha
+              </label>
+              <button type="button" id="forgotPasswordLink" class="link-inline">Esqueci a senha</button>
+            </div>
+
+            <button type="submit" class="btn-login">Login</button>
+
+          </form>
+
+          <p class="cadastro-text">
+            Não tem uma conta? <a href="../Cadastre-se/Cadastre-se.html">Cadastre-se</a>
+          </p>
+
+          <div id="forgotPasswordModal" class="modal" hidden>
+            <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="forgotPasswordTitle">
+              <button type="button" id="closeForgotPassword" class="modal-close" aria-label="Fechar">&times;</button>
+              <h2 id="forgotPasswordTitle">Esqueci a senha</h2>
+              <p>Informe seu e-mail para receber as instruções de recuperação.</p>
+              <form id="forgotPasswordForm" novalidate>
+                <label for="recoveryEmail">E-mail</label>
+                <input type="email" id="recoveryEmail" placeholder="seu@email.com" required />
+                <p id="recoveryMessage" class="recovery-message" role="alert"></p>
+                <button type="submit" class="btn-login">Enviar instruções</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../../api-config.js"></script>
+  <script src="../../api-client.js"></script>
+  <script src="Login.js"></script>
+</body>
+</html>

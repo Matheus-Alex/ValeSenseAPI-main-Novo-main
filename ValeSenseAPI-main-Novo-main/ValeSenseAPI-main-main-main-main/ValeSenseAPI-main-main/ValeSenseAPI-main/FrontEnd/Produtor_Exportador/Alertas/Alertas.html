@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ValeSense | Alertas e notificações</title>
+    <script>
+      document.documentElement.classList.toggle(
+        "dark-theme",
+        localStorage.getItem("valesense_theme") === "dark",
+      );
+    </script>
+    <link rel="stylesheet" href="Alertas.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../role-visual.css">
+</head>
+  <body data-login-path="../../Analista_de_dados/Login/Login.html">
+    <header class="pe-topbar">
+      <a class="pe-brand" href="../Home/Home.html"
+        ><img
+          src="../assets/Logo.svg"
+          alt=""
+        />ValeSense</a
+      ><span class="pe-profile-label">Área do produtor e exportador</span>
+      <div class="pe-top-actions">
+        <button
+          class="pe-icon-button"
+          type="button"
+          data-scroll-top
+          aria-label="Voltar ao topo"
+          title="Voltar ao topo"
+        >
+          <img
+            src="../assets/Seta.svg"
+            alt=""
+          /></button
+        ><a
+          class="pe-icon-button"
+          href="../Configuracoes/Configuracoes.html"
+          aria-label="Configurações"
+          title="Configurações"
+          ><img
+            src="../assets/Config.svg"
+            alt="" /></a
+        ><button
+          class="pe-icon-button"
+          type="button"
+          data-theme-toggle
+          aria-label="Alternar tema"
+          title="Alternar tema"
+          aria-pressed="false"
+        >
+          <img
+            data-theme-icon
+            src="../assets/Lua.svg"
+            alt=""
+          /></button
+        ><button
+          class="pe-icon-button logout-action"
+          type="button"
+          data-logout
+          aria-label="Sair"
+          title="Sair"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M10 17l5-5-5-5M15 12H3" />
+            <path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6" /></svg
+          ><span>Sair</span>
+        </button>
+      </div>
+    </header>
+    <div class="pe-layout">
+      <aside class="pe-sidebar">
+        <nav class="pe-nav" aria-label="Navegação principal">
+          <a class="pe-nav-link" href="../Home/Home.html"
+            ><img
+              src="../assets/Home.svg"
+              alt=""
+            />Início</a
+          ><a class="pe-nav-link" href="../Plantacoes/Plantacoes.html"
+            ><img
+              src="../assets/Maps.svg"
+              alt=""
+            />Minhas plantações</a
+          ><a class="pe-nav-link" href="../Colheita/Colheita.html"
+            ><img
+              src="../assets/Lupa.svg"
+              alt=""
+            />Janelas de safra</a
+          ><a class="pe-nav-link" href="../Mercado/Mercado.html"
+            ><img
+              src="../assets/Loja.svg"
+              alt=""
+            />Mercado</a
+          ><a class="pe-nav-link active" href="Alertas.html" aria-current="page"
+            ><img
+              src="../assets/Alerta.svg"
+              alt=""
+            />Alertas</a
+          ><a class="pe-nav-link" href="../Configuracoes/Configuracoes.html"
+            ><img
+              src="../assets/Config.svg"
+              alt=""
+            />Configurações</a
+          >
+        </nav>
+      </aside>
+      <main class="pe-content">
+        <div class="pe-heading">
+          <div>
+            <p class="pe-kicker">Registros associados à sua conta</p>
+            <h1>Alertas e notificações</h1>
+            <p>
+              Notificações cadastradas e o alerta relacionado, quando
+              disponível.
+            </p>
+          </div>
+          <div
+            class="pe-segmented"
+            role="group"
+            aria-label="Filtrar notificações"
+          >
+            <button
+              type="button"
+              data-notification-filter="all"
+              aria-pressed="true"
+            >
+              Todas</button
+            ><button
+              type="button"
+              data-notification-filter="unread"
+              aria-pressed="false"
+            >
+              Não lidas
+            </button>
+          </div>
+        </div>
+        <section class="pe-grid pe-grid-3">
+          <article class="pe-panel">
+            <p class="pe-stat-label">Notificações</p>
+            <p class="pe-stat-value" id="notificationCount">—</p>
+            <p class="pe-stat-note">Até 100 registros mais recentes</p>
+          </article>
+          <article class="pe-panel">
+            <p class="pe-stat-label">Não lidas</p>
+            <p class="pe-stat-value" id="unreadCount">—</p>
+            <p class="pe-stat-note">Conforme status gravado no banco</p>
+          </article>
+          <article class="pe-panel">
+            <p class="pe-stat-label">Alertas relacionados</p>
+            <p class="pe-stat-value" id="alertCount">—</p>
+            <p class="pe-stat-note">Alertas vinculados às suas notificações</p>
+          </article>
+        </section>
+        <div class="pe-section-head">
+          <div>
+            <h2 class="pe-section-title">Alertas das previsões</h2>
+            <p>Alertas associados a previsões dos seus talhões.</p>
+          </div>
+        </div>
+        <section class="pe-panel">
+          <div class="pe-list" id="alertList" aria-live="polite">
+            <p class="pe-loading">Carregando alertas...</p>
+          </div>
+        </section>
+        <div class="pe-section-head">
+          <div>
+            <h2 class="pe-section-title">Caixa de notificações</h2>
+            <p>Esta tela é somente leitura.</p>
+          </div>
+        </div>
+        <section class="pe-panel">
+          <div class="pe-list" id="notificationList" aria-live="polite">
+            <p class="pe-loading">Carregando notificações...</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../../theme.js"></script>
+    <script src="../../api-config.js"></script>
+    <script src="../../api-client.js"></script>
+    <script src="../../Analista_de_dados/auth-guard.js"></script>
+    <script src="../shared.js"></script>
+    <script src="Alertas.js"></script>
+  </body>
+</html>

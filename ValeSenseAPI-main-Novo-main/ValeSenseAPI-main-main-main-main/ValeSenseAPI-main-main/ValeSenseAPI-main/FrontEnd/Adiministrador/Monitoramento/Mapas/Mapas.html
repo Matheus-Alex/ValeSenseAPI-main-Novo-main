@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValeSense — Mapa</title>
+  <link rel="stylesheet" href="../Dashboard/Dashboard.css">
+  <link rel="stylesheet" href="Mapas.css">
+  <link rel="stylesheet" href="../../../painel-compacto.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../role-visual.css">
+</head>
+<body data-login-path="../../../Analista_de_dados/Login/Login.html">
+  <header class="topbar">
+    <a class="brand" href="../Dashboard/Dashboard.html#home"><img class="brand-logo" src="../Dashboard/assets/Logo.svg" alt=""><span>ValeSense</span></a><span class="role-label">&#193;rea do administrador</span>
+    <div class="topbar-actions">
+      <a class="icon-btn" href="../../Configurações/Configuracoes.html" aria-label="Configurações"><img src="../Dashboard/assets/Config.svg" alt=""></a>
+      <button class="icon-btn" id="scrollTopBtn" type="button" aria-label="Voltar ao topo"><img src="../Dashboard/assets/Seta.svg" alt=""></button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar modo escuro" aria-pressed="false"><img data-theme-icon src="../Dashboard/assets/Lua.svg" alt=""></button>
+    <button class="icon-btn logout-action" type="button" data-logout aria-label="Sair" title="Sair"><img class="logout-icon" src="../Dashboard/assets/Sair.svg" alt=""><span>Sair</span></button></div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar"><nav aria-label="Navegação principal">
+      <a href="../Dashboard/Dashboard.html#home" class="nav-item"><img class="nav-icon" src="../Dashboard/assets/Home.svg" alt="">Home</a>
+      <a href="../Dashboard/Dashboard.html#dashboard" class="nav-item"><img class="nav-icon" src="../Dashboard/assets/Dashboard.svg" alt="">Dashboard</a>
+      <a href="../Dashboard/Dashboard.html#sensores" class="nav-item"><img class="nav-icon" src="../Dashboard/assets/Alerta.svg" alt="">Sensores</a>
+      <a href="Mapas.html" class="nav-item active" aria-current="page"><img class="nav-icon" src="../Dashboard/assets/Maps.svg" alt="">Mapa</a>
+      <a href="../Registro/Registro.html" class="nav-item"><img class="nav-icon" src="../Dashboard/assets/Lupa.svg" alt="">Registros</a>
+      <a href="../Frutas/Frutas.html" class="nav-item"><img class="nav-icon" src="../Dashboard/assets/Fruta.svg" alt="">Frutas</a>
+    </nav></aside>
+    <main class="content">
+      <section id="maps" class="page-section">
+        <h1 class="page-title"><img class="page-title-icon" src="../Dashboard/assets/Maps.svg" alt="">Mapa do Terreno</h1>
+        <div class="card map-card"><div class="map-frame"><p class="data-empty-state">O banco ainda não possui coordenadas de propriedades ou talhões para exibir um mapa.</p></div></div>
+      </section>
+    </main>
+  </div>
+  <script src="../../../theme.js"></script>
+  <script src="../../auth-guard.js"></script>
+  <script>document.getElementById('scrollTopBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  email           String            @unique
+  cpf             String?           @unique
+  senha           String
+  perfil          String
+  status          String            @default("ATIVO")
+  propriedades    Propriedade[]
+  tokens          TokenRecuperacao[]
+  notificacoes    Notificacao[]
+  configuracoes   Configuracao[]
+  logsAcesso      LogAcesso[]
+
+  @@map("usuario")
+}
+
+model Propriedade {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  usuarioId     String   @map("usuario_id") @db.ObjectId
+  nome          String
+  areaTotal     Float    @map("area_total")
+  localizacao   String
+  unidadeArea   String   @map("unidade_area")
+  usuario       Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  talhoes       Talhao[]
+
+  @@map("propriedade")
+}
+
+model Talhao {
+  id             String       @id @default(auto()) @map("_id") @db.ObjectId
+  propriedadeId  String       @map("propriedade_id") @db.ObjectId
+  nome           String
+  area           Float
+  unidadeArea    String       @map("unidade_area")
+  status         String       @default("ATIVO")
+  propriedade    Propriedade  @relation(fields: [propriedadeId], references: [id], onDelete: Cascade)
+  sensores       Sensor[]
+  previsoes      Previsao[]
+
+  @@map("talhao")
+}
+
+model Sensor {
+  id                String             @id @default(auto()) @map("_id") @db.ObjectId
+  talhaoId          String             @map("talhao_id") @db.ObjectId
+  identificador     String             @unique
+  canalThingSpeak   String?            @map("canal_thingspeak")
+  status            String             @default("ATIVO")
+  talhao            Talhao             @relation(fields: [talhaoId], references: [id], onDelete: Cascade)
+  leituras          LeituraClimatica[]
+
+  @@map("sensor")
+}
+
+model LeituraClimatica {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sensorId     String   @map("sensor_id") @db.ObjectId
+  temperatura  Float
+  umidade      Float
+  dataHora     DateTime @map("data_hora")
+  sensor       Sensor   @relation(fields: [sensorId], references: [id], onDelete: Cascade)
+
+  @@index([dataHora])
+  @@map("leitura_climatica")
+}
+
+model DadoMercado {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  produto        String
+  dataReferencia DateTime @map("data_referencia")
+  preco          Float
+  demanda        String?
+  unidadePreco   String?  @map("unidade_preco")
+
+  @@index([produto, dataReferencia])
+  @@map("dado_mercado")
+}
+
+model Previsao {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  talhaoId    String   @map("talhao_id") @db.ObjectId
+  tipo        String
+  dataInicio  DateTime @map("data_inicio")
+  dataFim     DateTime @map("data_fim")
+  geradaEm    DateTime @default(now()) @map("gerada_em")
+  confianca   Float?
+  talhao      Talhao   @relation(fields: [talhaoId], references: [id], onDelete: Cascade)
+  alertas     Alerta[]
+
+  @@map("previsao")
+}
+
+model Alerta {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  previsaoId  String   @map("previsao_id") @db.ObjectId
+  tipo        String
+  mensagem    String
+  nivel       String
+  status      String   @default("PENDENTE")
+  criadoEm    DateTime @default(now()) @map("criado_em")
+  previsao    Previsao @relation(fields: [previsaoId], references: [id], onDelete: Cascade)
+  notificacoes Notificacao[]
+
+  @@map("alerta")
+}
+
+model Notificacao {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  usuarioId String   @map("usuario_id") @db.ObjectId
+  alertaId  String   @map("alerta_id") @db.ObjectId
+  titulo    String
+  mensagem  String
+  lida      Boolean  @default(false)
+  criadaEm  DateTime @default(now()) @map("criada_em")
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  alerta    Alerta   @relation(fields: [alertaId], references: [id], onDelete: Cascade)
+
+  @@map("notificacao")
+}
+
+model Configuracao {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  usuarioId    String   @map("usuario_id") @db.ObjectId
+  chave        String
+  valor        String?
+  atualizadoEm DateTime @default(now()) @map("atualizado_em")
+  usuario      Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@unique([usuarioId, chave], map: "uq_configuracao_usuario_chave")
+  @@map("configuracao")
+}
+
+model TokenRecuperacao {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  usuarioId String   @map("usuario_id") @db.ObjectId
+  tokenHash String   @unique @map("token_hash")
+  expiracao DateTime
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@index([usuarioId])
+  @@map("token_recuperacao")
+}
+
+model LogAcesso {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  usuarioId   String?  @map("usuario_id") @db.ObjectId
+  acao        String
+  enderecoIp  String?  @map("endereco_ip")
+  userAgent   String?  @map("user_agent")
+  resultado   String
+  dataHora    DateTime @default(now()) @map("data_hora")
+  usuario     Usuario? @relation(fields: [usuarioId], references: [id], onDelete: SetNull)
+
+  @@index([dataHora])
+  @@map("log_acesso")
+}

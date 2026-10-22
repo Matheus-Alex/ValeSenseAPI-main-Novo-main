@@ -1,0 +1,3 @@
+.sidebar .nav-item { color: var(--texto-label); }
+.sidebar .nav-item:hover { color: var(--verde-escuro); }
+.sidebar .nav-item.active { color: #fff; }

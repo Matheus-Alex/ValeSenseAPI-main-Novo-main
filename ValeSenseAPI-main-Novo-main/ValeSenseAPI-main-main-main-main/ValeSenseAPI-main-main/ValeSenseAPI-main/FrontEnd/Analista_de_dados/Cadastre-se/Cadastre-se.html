@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ValeSense — Cadastro</title>
+<link rel="stylesheet" href="Cadastre-se.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../role-visual.css">
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- Formulário -->
+    <div class="form-side">
+      <h1>CADASTRO</h1>
+      <p class="subtitle">Preencha os dados para criar o acesso de administrador ou analista de Dados</p>
+
+      <form id="registerForm" novalidate>
+        <div class="field">
+          <input type="text" id="name" placeholder="nome completo" required>
+        </div>
+
+        <div class="field">
+          <input type="email" id="email" placeholder="e-mail" required>
+        </div>
+
+        <div class="field">
+          <input type="text" id="document" placeholder="CPF (analista) ou PJ/CNPJ (administrador)" required>
+        </div>
+
+        <div class="field">
+          <input type="password" placeholder="crie uma senha forte" id="senha" required>
+          <span class="toggle-eye" onclick="togglePassword('senha', this)">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="field">
+          <input type="password" placeholder="confirme a senha" id="confirmaSenha" required>
+          <span class="toggle-eye" onclick="togglePassword('confirmaSenha', this)">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </span>
+        </div>
+
+        <button type="submit" class="btn-cadastrar">Cadastrar-se</button>
+        <p id="statusMessage" role="alert"></p>
+      </form>
+
+      <p class="login-link">Já tem uma conta? <a href="../Login/Login.html">volte pro login</a></p>
+    </div>
+
+    <!-- Imagem -->
+    <div class="image-side">
+      <img src="../Dashboard/assets/Agricultor-cadastro.png" alt="Trabalhador no campo">
+    </div>
+
+    <script src="../../api-config.js"></script>
+    <script src="../../api-client.js"></script>
+    <script src="Cadastre-se.js"></script>
+
+  </div>
+
+</body>
+</html>

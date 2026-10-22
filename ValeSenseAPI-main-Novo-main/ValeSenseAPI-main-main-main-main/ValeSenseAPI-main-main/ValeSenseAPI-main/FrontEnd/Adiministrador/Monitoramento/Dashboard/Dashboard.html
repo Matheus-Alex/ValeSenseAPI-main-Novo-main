@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ValeSense — Monitoramento administrativo</title>
+  <link rel="stylesheet" href="Dashboard.css" />
+  <link rel="stylesheet" href="../../../painel-compacto.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../role-visual.css">
+</head>
+<body data-login-path="../../../Analista_de_dados/Login/Login.html">
+
+  <div class="topbar">
+    <div class="brand">
+      <img class="brand-logo" src="assets/Logo.svg" alt="ValeSense" />
+      ValeSense
+    </div><span class="role-label">&#193;rea do administrador</span>
+    <div class="topbar-actions">
+      <a class="icon-btn" href="../../Configurações/Configuracoes.html" aria-label="Configurações" title="Configurações">
+        <img class="action-icon" src="assets/Config.svg" alt="" />
+      </a>
+      <button class="icon-btn" id="scrollTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <img class="action-icon" src="assets/Seta.svg" alt="" />
+      </button>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar modo escuro" title="Ativar modo escuro" aria-pressed="false">
+        <img data-theme-icon src="assets/Lua.svg" alt="" />
+      </button>
+    <button class="icon-btn logout-action" type="button" data-logout aria-label="Sair" title="Sair"><img class="logout-icon" src="assets/Sair.svg" alt=""><span>Sair</span></button></div>
+  </div>
+
+  <div class="layout">
+
+    <!-- Sidebar: Home/Dashboard/sensores/maps-->
+    <aside class="sidebar">
+      <nav id="scrollNav">
+        <a href="#home" class="nav-item" data-section="home">
+          <img class="nav-icon" src="assets/Home.svg" alt="" />
+          Home
+        </a>
+        <a href="#dashboard" class="nav-item" data-section="dashboard">
+          <img class="nav-icon" src="assets/Dashboard.svg" alt="" />
+          Dashboard
+        </a>
+        <a href="#sensores" class="nav-item" data-section="sensores">
+          <img class="nav-icon" src="assets/Alerta.svg" alt="" />
+          Sensores
+        </a>
+        <a href="../Mapas/Mapas.html" class="nav-item">
+          <img class="nav-icon" src="assets/Maps.svg" alt="" />
+          Mapa
+        </a>
+        <a href="../Registro/Registro.html" class="nav-item">
+          <img class="nav-icon" src="assets/Lupa.svg" alt="" />
+          Registros
+        </a>
+        <a href="../Frutas/Frutas.html" class="nav-item"><img class="nav-icon" src="assets/Fruta.svg" alt="">Frutas</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+
+      <!-- HOME -->
+      <section id="home" class="page-section">
+        <h1 class="page-title">
+          <img class="page-title-icon" src="assets/Home.svg" alt="" />
+          Home
+        </h1>
+        <p class="selected-day" id="selectedDayLabel">Últimas leituras registradas</p>
+
+        <div class="grid-2 home-overview-grid">
+          <div class="card">
+            <p class="card-label">Última leitura dos sensores</p>
+            <div class="weather-row">
+              <div>
+                <p class="weather-temp" id="weatherTemp">--</p>
+                <p class="weather-sub" id="weatherCondition">Aguardando leituras do banco</p>
+                <p class="weather-sub" id="weatherSensacao"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="temperature-card-heading">
+              <p class="card-label">Temperatura</p>
+              <div class="temperature-modes" role="group" aria-label="Exibição da temperatura">
+                <button class="temperature-mode" type="button" data-temperature-mode="max" aria-pressed="false">Máxima</button>
+                <button class="temperature-mode" type="button" data-temperature-mode="min" aria-pressed="false">Mínima</button>
+              </div>
+            </div>
+            <div class="chart-wrapper small"><canvas id="tempChart"></canvas></div>
+            <p class="chart-note" id="tempNote">Sem leituras registradas.</p>
+          </div>
+
+        </div>
+
+        <div class="grid-2 home-environment-grid">
+          <div class="card">
+            <div class="temperature-card-heading">
+              <p class="card-label">Umidade Relativa</p>
+              <div class="temperature-modes" role="group" aria-label="Exibição da umidade">
+                <button class="temperature-mode" type="button" data-humidity-mode="max" aria-pressed="false">Máxima</button>
+                <button class="temperature-mode" type="button" data-humidity-mode="min" aria-pressed="false">Mínima</button>
+              </div>
+            </div>
+            <div class="humidity-row">
+              <svg viewBox="0 0 24 24" class="big-icon"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z" fill="none" stroke="#33512A" stroke-width="1.6"/></svg>
+              <div>
+                <p class="stat-value" id="umidadeValor">--</p>
+                <p class="stat-label">Umidade atual</p>
+              </div>
+            </div>
+            <div class="chart-wrapper small"><canvas id="umidadeChart"></canvas></div>
+            <p class="humidity-tag" id="umidadeTag" hidden></p>
+            <p class="chart-note" id="umidadeNote">Sem leituras registradas.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="page-section">
+        <h1 class="page-title">
+          <img class="page-title-icon" src="assets/Dashboard.svg" alt="" />
+          Dashboard
+        </h1>
+
+        <div class="card">
+          <p class="card-label">Status atual dos sensores</p>
+          <div class="chart-wrapper large"><canvas id="visaoGeralChart"></canvas></div>
+        </div>
+
+      </section>
+
+      <!-- SENSORES -->
+      <section id="sensores" class="page-section">
+        <h1 class="page-title">
+          <img class="page-title-icon" src="assets/Alerta.svg" alt="" />
+          sensores
+        </h1>
+
+        <h2 class="section-title">Estados dos sensores</h2>
+        <p class="section-subtitle">Acompanhe os indicadores e registros da sua propriedade.</p>
+
+        <div class="sensor-list" id="sensorList" aria-live="polite">Carregando sensores...</div>
+
+        <h2 class="section-title">Dados dos sensores</h2>
+        <div class="filter-bar">
+          <div class="filter-group">
+            <select id="canalSelect" aria-label="Sensor">
+              <option value="">Todos os sensores</option>
+            </select>
+            <select id="periodoSelect" aria-label="Período dos dados">
+              <option value="30">Últimos 30 dias</option>
+              <option value="90">Últimos 90 dias</option>
+              <option value="safra">Safra atual</option>
+            </select>
+          </div>
+          <button id="exportBtn" class="btn-outline">Exportar dados</button>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Previsões de safra cadastradas</p>
+          <div id="forecastList" class="forecast-list" aria-live="polite">Carregando previsões...</div>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Temperatura e umidade — histórico</p>
+          <div class="chart-wrapper large"><canvas id="climChart"></canvas></div>
+          <p class="chart-note" id="historyNote"></p>
+        </div>
+
+        <p class="sensor-note">Somente leitura — ativar/desativar sensores é uma ação do Administrador.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <script src="../../../theme.js"></script>
+  <script src="../../../api-config.js"></script>
+  <script src="../../../api-client.js"></script>
+  <script src="../../auth-guard.js"></script>
+  <script src="Dashboard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+﻿.sensor-list {
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.sensor-block {
+  padding: 12px 14px;
+  border: 1px solid var(--linha);
+  border-radius: 9px;
+  background: var(--branco);
+}
+
+.sensor-name {
+  margin-bottom: 8px;
+}
+
+.btn-add-sensor {
+  margin-top: 8px;
+}
+
+html.dark-theme .sensor-block {
+  background: #29312c;
+  border-color: #414b43;
+}

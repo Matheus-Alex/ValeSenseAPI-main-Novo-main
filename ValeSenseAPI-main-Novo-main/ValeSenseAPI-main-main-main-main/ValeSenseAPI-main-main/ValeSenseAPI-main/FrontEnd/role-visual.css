@@ -1,0 +1,66 @@
+/* Identidade compartilhada das áreas e contraste do modo claro. */
+.role-label,
+.pe-profile-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin-left: 4px;
+  padding-left: 14px;
+  border-left: 1px solid #a7bd8a;
+  color: #496d35;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+html:not(.dark-theme) body { color: #30392d; }
+html:not(.dark-theme) :is(h1, h2, h3, .brand, .pe-heading h1, .pe-section-title, .nav-group > summary, .section-title, .card-title) { color: #365c2e; }
+html:not(.dark-theme) :is(.role-label, .pe-profile-label) { color: #496d35; }
+html:not(.dark-theme) :is(.nav-item.active, .pe-nav-link.active) { color: #315b2b; font-weight: 600; }
+html:not(.dark-theme) :is(.nav-item.active, .pe-nav-link.active) img { opacity: 1; }
+
+@media (max-width: 620px) {
+  .role-label,
+  .pe-profile-label { display: none; }
+}
+/* Maior contraste e destaque dos textos secundários no tema claro. */
+html:not(.dark-theme) {
+  --pe-muted: #526846;
+  --texto-label: #526846;
+  --text-muted: #526846;
+  --muted: #526846;
+}
+
+html:not(.dark-theme) body { color: #30392d; }
+html:not(.dark-theme) :is(
+  .section-subtitle,
+  .setting-description,
+  .section-description,
+  .pe-heading p,
+  .pe-section-head p,
+  .pe-panel-heading p,
+  .pe-stat-label,
+  .pe-stat-note,
+  .pe-reading small,
+  .pe-inline-meta,
+  .pe-empty,
+  .pe-loading,
+  .pe-row-main small,
+  .pe-plot-card .pe-property,
+  .pe-plot-metrics span,
+  .pe-timeline-copy small,
+  .pe-table th,
+  .pe-field label,
+  .pe-field legend,
+  .nav-item:not(.active),
+  .pe-nav-link:not(.active),
+  .monitor-kpi span,
+  .monitor-list p,
+  .user-table th
+) { color: #526846; }
+
+html:not(.dark-theme) :is(input, select, textarea)::placeholder {
+  color: #617552;
+  opacity: 1;
+}

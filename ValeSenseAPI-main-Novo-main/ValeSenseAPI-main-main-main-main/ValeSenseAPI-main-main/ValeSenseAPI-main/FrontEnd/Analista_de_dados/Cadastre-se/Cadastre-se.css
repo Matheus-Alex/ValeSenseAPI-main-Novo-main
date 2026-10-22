@@ -1,0 +1,177 @@
+:root {
+  --verde-escuro: #33512A;
+  --verde-oliva: #A9BB84;
+  --verde-linha: #C9D3B8;
+  --cinza-placeholder: #8A9B7C;
+  --branco: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fbf3 0%, #e6efd8 52%, #c8d9ae 100%);
+}
+
+.card {
+  display: flex;
+  width: 900px;
+  min-height: 560px;
+  background: var(--branco);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* ----- Lado esquerdo: formulÃ¡rio ----- */
+.form-side {
+  flex: 1;
+  padding: 56px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-side h1 {
+  color: var(--verde-escuro);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 36px;
+}
+
+.field {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.field input {
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid var(--verde-linha);
+  padding: 6px 28px 8px 4px;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+  outline: none;
+}
+
+.field input::placeholder {
+  color: var(--cinza-placeholder);
+}
+
+.field input:focus {
+  border-bottom-color: var(--verde-escuro);
+}
+
+.toggle-eye {
+  position: absolute;
+  right: 2px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: var(--cinza-placeholder);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.toggle-eye:hover {
+  color: var(--verde-escuro);
+}
+
+.toggle-eye svg {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-cadastrar {
+  margin-top: 12px;
+  background: var(--verde-oliva);
+  color: var(--branco);
+  border: none;
+  border-radius: 24px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-cadastrar:hover {
+  background: var(--verde-escuro);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 13px;
+  color: #555;
+}
+
+.login-link a {
+  color: var(--verde-escuro);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* ----- Lado direito: imagem ----- */
+.image-side {
+  flex: 1;
+  position: relative;
+  background: linear-gradient(160deg, #7fa6d1 0%, #d7cf8e 60%, #e8d98a 100%);
+}
+
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.92;
+  mix-blend-mode: multiply;
+}
+
+.logo {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 46px;
+  height: 46px;
+  z-index: 2;
+}
+
+/* ----- Responsivo ----- */
+@media (max-width: 760px) {
+  .card {
+    flex-direction: column;
+    width: 92%;
+  }
+  .image-side {
+    height: 220px;
+    order: -1;
+  }
+  .form-side {
+    padding: 40px 32px;
+  }
+}

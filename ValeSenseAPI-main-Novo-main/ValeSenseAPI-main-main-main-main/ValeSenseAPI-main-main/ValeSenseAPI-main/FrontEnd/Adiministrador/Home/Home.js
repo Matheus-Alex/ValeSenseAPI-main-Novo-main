@@ -1,4 +1,4 @@
-const api = window.ValeSenseApi;
+﻿const api = window.ValeSenseApi;
 
 document.getElementById('scrollTopBtn').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -140,3 +140,4 @@ async function carregarResumoMonitoramento() {
 carregarResumoMonitoramento();
 
 carregarUsuarios();
+

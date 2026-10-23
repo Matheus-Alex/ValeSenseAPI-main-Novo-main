@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ValeSense | Acompanhamento</title>
+<link rel="stylesheet" href="../../Home/Home.css"><link rel="stylesheet" href="../../../painel-compacto.css"><link rel="stylesheet" href="../../../role-visual.css"><link rel="stylesheet" href="Analistas.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../admin-sidebar.css">
+</head>
+<body data-login-path="../../Login/Login.html" data-activity-role="ANALISTA">
+<header class="topbar"><div class="brand"><img class="brand-logo" src="../../assets/Logo.svg" alt="">ValeSense</div><span class="role-label">Área do administrador</span><div class="topbar-actions"><a class="icon-btn" href="../../Configurações/Configuracoes.html" aria-label="Configurações"><img class="action-icon" src="../../assets/Config.svg" alt=""></a><button class="icon-btn" id="scrollTopBtn" aria-label="Voltar ao topo"><img class="action-icon" src="../../assets/Seta.svg" alt=""></button><button class="icon-btn" type="button" data-theme-toggle aria-label="Alternar tema"><img data-theme-icon src="../../assets/Lua.svg" alt=""></button><button class="icon-btn logout-action" type="button" data-logout aria-label="Sair"><img class="logout-icon" src="../../assets/Sair.svg" alt=""><span>Sair</span></button></div></header>
+<div class="layout"><aside class="sidebar"><nav class="admin-nav" aria-label="Navegação administrativa">
+<details class="nav-group" open><summary>Minha conta</summary><a href="../../Home/Home.html" class="nav-item">Visão geral</a><a href="../../Home/Home.html#usuarios" class="nav-item">Usuários</a><a href="../../Sensores/Sensores.html" class="nav-item">Sensores</a><a href="../../Registros/Registros.html" class="nav-item">Registros de acesso</a></details>
+<details class="nav-group"><summary>Acompanhamento</summary><a href="../Analistas/Analistas.html" class="nav-item active" aria-current="page">Analistas</a><a href="../Produtores/Produtores.html" class="nav-item">Produtores</a><a href="../../Monitoramento/Dashboard/Dashboard.html" class="nav-item">Dashboard climático</a><a href="../../Monitoramento/Mapas/Mapas.html" class="nav-item">Mapas</a><a href="../../Operacao/Alertas/Alertas.html" class="nav-item">Alertas</a></details>
+</nav></aside>
+<main class="content"><section class="page-section"><h1 class="page-title"><img class="page-title-icon" src="../../assets/Dashboard.svg" alt="">Acompanhamento de analistas</h1><p class="section-subtitle">Consulte as contas deste perfil e as ações registradas no sistema.</p>
+<div class="activity-summary"><article class="card activity-stat"><span>Contas deste perfil</span><strong id="roleCount">—</strong></article><article class="card activity-stat"><span>Contas ativas</span><strong id="activeCount">—</strong></article><article class="card activity-stat"><span>Ações registradas</span><strong id="eventCount">—</strong></article></div>
+<article class="card"><div class="card-header-row"><h2 class="card-label">Usuários</h2></div><div class="activity-table-wrap"><table class="activity-table"><thead><tr><th>Nome</th><th>E-mail</th><th>Status</th><th>Última ação registrada</th><th>Data e hora</th></tr></thead><tbody id="roleUsersBody"><tr><td colspan="5">Carregando...</td></tr></tbody></table></div></article>
+<article class="card"><div class="card-header-row"><h2 class="card-label">Atividade recente</h2></div><div class="activity-table-wrap"><table class="activity-table"><thead><tr><th>Data e hora</th><th>Usuário</th><th>Ação</th><th>Resultado</th><th>IP</th></tr></thead><tbody id="roleActivityBody"><tr><td colspan="5">Carregando...</td></tr></tbody></table></div><p class="activity-note">Esta lista mostra somente ações que o sistema registra atualmente, como login, cadastro e algumas operações administrativas.</p></article>
+</section></main></div>
+<script src="../../../theme.js"></script><script src="../../../api-config.js"></script><script src="../../../api-client.js"></script><script src="../../auth-guard.js"></script><script src="Analistas.js"></script>
+  <script src="../../admin-sidebar.js"></script>
+</body></html>
+
+
+
+
+
+

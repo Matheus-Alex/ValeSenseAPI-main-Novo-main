@@ -1,4 +1,4 @@
-const loginForm = document.getElementById('loginForm');
+﻿const loginForm = document.getElementById('loginForm');
 const emailInput = document.getElementById('email');
 const senhaInput = document.getElementById('senha');
 const passwordToggle = document.querySelector('.password-toggle');

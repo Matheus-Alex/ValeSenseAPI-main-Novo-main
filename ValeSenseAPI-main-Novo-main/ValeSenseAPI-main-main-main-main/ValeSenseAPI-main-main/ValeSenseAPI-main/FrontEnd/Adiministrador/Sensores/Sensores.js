@@ -94,3 +94,4 @@ document.getElementById('addSensorBtn').addEventListener('click', async () => {
 });
 
 carregarSensores();
+

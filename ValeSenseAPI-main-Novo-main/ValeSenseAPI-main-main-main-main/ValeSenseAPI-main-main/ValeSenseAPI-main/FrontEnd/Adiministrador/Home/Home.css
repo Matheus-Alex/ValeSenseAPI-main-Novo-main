@@ -89,7 +89,7 @@ html.dark-theme .topbar-actions .icon-btn img { filter: brightness(0) saturate(1
 .nav-item.active .nav-icon { filter: brightness(0) invert(1); }
 .action-icon { width: 18px; height: 18px; object-fit: contain; }
 
-/* ConteÃºdo â€” rolagem Ãºnica (Home + sensores) */
+/* Conteúdo — rolagem única (Home + sensores) */
 .content { flex: 1; min-width: 0; max-width: none; margin-inline: auto; display: flex; flex-direction: column; gap: 28px; }
 .page-section { scroll-margin-top: 96px; display: flex; flex-direction: column; gap: 16px; }
 
@@ -118,7 +118,7 @@ html.dark-theme .topbar-actions .icon-btn img { filter: brightness(0) saturate(1
 .btn-small { font-size: 12px; padding: 7px 12px; }
 .btn-small svg, .btn-small img { width: 14px; height: 14px; object-fit: contain; }
 
-/* Tabela de usuÃ¡rios */
+/* Tabela de usuários */
 .user-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .user-table th { text-align: left; color: var(--texto-label); font-weight: 600; padding: 6px 6px; border-bottom: 1px solid var(--linha); }
 .user-table td { padding: 10px 6px; border-bottom: 1px solid var(--linha); }
@@ -153,7 +153,7 @@ html.dark-theme .topbar-actions .icon-btn img { filter: brightness(0) saturate(1
 .sensor-status.danger { background: var(--erro-claro); color: #7A2A24; }
 .sensor-status.danger svg { color: #7A2A24; }
 
-/* Toggle Ativar/Desativar â€” sÃ³ existe aqui, nÃ£o na versÃ£o da Analista */
+/* Toggle Ativar/Desativar — só existe aqui, não na versão da Analista */
 .toggle { position: relative; display: inline-block; width: 40px; height: 22px; flex-shrink: 0; }
 .toggle input { opacity: 0; width: 0; height: 0; }
 .toggle-track { position: absolute; inset: 0; background: var(--linha); border-radius: 999px; transition: background 0.15s ease; }
@@ -173,7 +173,7 @@ html.dark-theme .topbar-actions .icon-btn img { filter: brightness(0) saturate(1
 .link-inline { font-size: 13px; color: var(--verde-escuro); font-weight: 700; text-decoration: none; }
 .link-inline:hover { text-decoration: underline; }
 
-/* Registros â€” tabela estilo planilha */
+/* Registros — tabela estilo planilha */
 .table-card { padding: 16px; }
 
 .table-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
@@ -342,3 +342,4 @@ html.dark-theme .admin-nav .nav-group { border-color:#475048; }
 html.dark-theme .admin-nav .nav-group[open] summary, html.dark-theme .admin-nav .nav-item { color:#e3e7e3; }
 html.dark-theme .admin-nav .nav-item:hover { background:#343d35; }
 @media(max-width:900px) { .admin-nav { max-height:45vh; } }
+

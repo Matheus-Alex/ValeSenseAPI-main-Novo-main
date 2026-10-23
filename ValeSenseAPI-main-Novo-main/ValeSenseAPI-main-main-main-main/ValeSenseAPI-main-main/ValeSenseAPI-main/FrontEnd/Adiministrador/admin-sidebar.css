@@ -1,0 +1,54 @@
+﻿.admin-sidebar-nav { display:flex; flex-direction:column; gap:12px; width:100%; }
+.admin-sidebar-nav .admin-sidebar-group { display:flex; flex-direction:column; gap:4px; width:100%; }
+.admin-sidebar-nav .admin-sidebar-group > summary { padding:9px 10px; color:var(--verde-escuro, #33512A); font-size:12px; font-weight:700; cursor:pointer; list-style:none; border-radius:8px; }
+.admin-sidebar-nav .admin-sidebar-group > summary::-webkit-details-marker { display:none; }
+.admin-sidebar-nav .admin-sidebar-group > summary::after { content:'+'; float:right; opacity:.65; }
+.admin-sidebar-nav .admin-sidebar-group[open] > summary::after { content:'−'; }
+.admin-sidebar-nav .nav-item { display:flex; align-items:center; min-height:36px; padding:9px 10px; border-radius:10px; color:var(--texto-corpo, #4A4A4A); font-size:13px; line-height:18px; text-decoration:none; }
+.admin-sidebar-nav .nav-item:hover { background:var(--verde-claro, #E4ECD8); }
+.admin-sidebar-nav .nav-item.active { color:#fff; background:var(--verde-oliva, #A9BB84); font-weight:600; }
+.admin-sidebar { box-sizing:border-box; }
+html.dark-theme .admin-sidebar-nav .admin-sidebar-group > summary { color:#e3e7e3; }
+html.dark-theme .admin-sidebar-nav .nav-item { color:#e3e7e3; }
+html.dark-theme .admin-sidebar-nav .nav-item:hover { background:#303632; }
+html.dark-theme .admin-sidebar-nav .nav-item.active { color:#fff; background:#84917b; }
+
+/* Layout comum alinhado ao painel do Analista de dados. */
+.layout { display:flex!important; align-items:flex-start; gap:24px; padding:24px; }
+.layout > .sidebar { box-sizing:border-box; width:190px; flex:0 0 190px; padding:16px; gap:12px; position:sticky; top:96px; }
+.layout > .content, .layout > main { flex:1 1 0; width:auto; min-width:0; max-width:none; margin:0; }
+.pe-layout { display:flex!important; align-items:flex-start; gap:24px; max-width:none; margin:0; padding:24px; }
+.pe-layout > .pe-sidebar { box-sizing:border-box; width:190px; flex:0 0 190px; padding:16px; position:sticky; top:96px; align-self:flex-start; }
+.pe-layout > .pe-content { flex:1 1 0; width:auto; min-width:0; }
+.pe-layout .pe-nav { display:block; width:100%; }
+@media (max-width:780px) {
+  .layout, .pe-layout { flex-direction:column!important; gap:24px; padding:16px; }
+  .layout > .sidebar, .pe-layout > .pe-sidebar { position:static; width:100%; flex:0 0 auto; }
+  .layout > .content, .layout > main, .pe-layout > .pe-content { width:100%; }
+}
+
+.pe-topbar { gap:24px; min-height:66px; padding:16px 24px; }
+.pe-brand { gap:8px; font-size:16px; }
+.pe-brand img { width:28px; height:28px; }
+.pe-profile-label { margin-left:0; padding-left:0; border-left:0; font-size:13px; }
+.pe-icon-button { width:34px; height:34px; border-radius:10px; }
+.pe-layout > .pe-sidebar { border-radius:14px; }
+@media (max-width:620px) {
+  .pe-topbar { gap:12px; min-height:58px; padding:12px 16px; }
+  .pe-profile-label { display:none; }
+}
+
+/* Cores e espaçamentos da navegação no padrão do Analista. */
+.admin-sidebar-nav { gap:12px; }
+.admin-sidebar-nav .admin-sidebar-group { gap:4px; }
+.admin-sidebar-nav .admin-sidebar-group > summary { min-height:36px; padding:9px 10px; border-radius:10px; color:#33512A; }
+.admin-sidebar-nav .nav-item { box-sizing:border-box; width:100%; min-height:36px; margin:0; padding:9px 10px; border-radius:10px; color:#8A9B7C; font-size:13px; line-height:18px; transition:background .15s ease,color .15s ease; }
+.admin-sidebar-nav .nav-item:hover { color:#4A4A4A; background:#E4ECD8; }
+.admin-sidebar-nav .nav-item.active,
+.admin-sidebar-nav .nav-item.active:hover { color:#fff; background:#A9BB84; font-weight:600; }
+html.dark-theme .admin-sidebar-nav .admin-sidebar-group > summary { color:#e3e7e3; }
+html.dark-theme .admin-sidebar-nav .nav-item { color:#b9c1b8; }
+html.dark-theme .admin-sidebar-nav .nav-item:hover { color:#e3e7e3; background:#303632; }
+html.dark-theme .admin-sidebar-nav .nav-item.active,
+html.dark-theme .admin-sidebar-nav .nav-item.active:hover { color:#fff; background:#84917b; }
+

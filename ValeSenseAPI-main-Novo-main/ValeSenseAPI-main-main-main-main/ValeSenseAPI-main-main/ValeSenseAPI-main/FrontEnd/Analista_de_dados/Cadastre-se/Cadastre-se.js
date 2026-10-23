@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 
 const eyeOpen = `
   <svg viewBox="0 0 24 24" fill="none">
@@ -49,3 +49,4 @@ registerForm.addEventListener('submit', async (event) => {
     statusMessage.textContent = error.message || 'Não foi possível concluir o cadastro.';
   }
 });
+

@@ -67,3 +67,4 @@ async function loadPlots() {
 
 $("#plotSearch").addEventListener("input", renderPlots);
 loadPlots();
+

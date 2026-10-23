@@ -1,4 +1,4 @@
-const { $, node, setEmpty, request, formatDate } = window.ProdutorApp;
+﻿const { $, node, setEmpty, request, formatDate } = window.ProdutorApp;
 let forecasts = [];
 
 function renderForecasts() {
@@ -37,3 +37,4 @@ async function loadForecasts() {
 }
 
 loadForecasts();
+

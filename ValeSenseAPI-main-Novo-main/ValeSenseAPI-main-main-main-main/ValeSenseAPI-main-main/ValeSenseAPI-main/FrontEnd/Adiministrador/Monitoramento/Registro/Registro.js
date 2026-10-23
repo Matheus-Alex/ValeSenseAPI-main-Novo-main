@@ -1,4 +1,4 @@
-const tabs = document.querySelectorAll('.tab');
+﻿const tabs = document.querySelectorAll('.tab');
 const panels = document.querySelectorAll('.tab-panel');
 const leiturasBody = document.getElementById('leituras-body');
 const filtroSensor = document.getElementById('filtro-sensor');
@@ -91,3 +91,4 @@ vazio.append(mensagemVazia);
 exportacoesBody.append(vazio);
 
 carregarLeituras();
+

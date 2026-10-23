@@ -406,3 +406,4 @@ historyNote.textContent = 'Carregando histórico do banco...';
 carregarLeiturasHome();
 carregarSensores();
 carregarPrevisoes();
+

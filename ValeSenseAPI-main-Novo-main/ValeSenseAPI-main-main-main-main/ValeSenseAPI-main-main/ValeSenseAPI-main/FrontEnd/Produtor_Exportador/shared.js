@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
@@ -45,3 +45,4 @@
 
   window.ProdutorApp = { $, $$, formatDate, setEmpty, node, request, readSessionUser };
 })();
+

@@ -1,4 +1,4 @@
-const saveMessage = document.getElementById('save-msg');
+﻿const saveMessage = document.getElementById('save-msg');
 
 function aplicarConfiguracoes(configuracao) {
   if (configuracao.unidadeTemp !== undefined) {
@@ -89,3 +89,4 @@ document.getElementById('scrollTopBtn').addEventListener('click', () => {
 
 carregarConfiguracoes();
 carregarCanais();
+

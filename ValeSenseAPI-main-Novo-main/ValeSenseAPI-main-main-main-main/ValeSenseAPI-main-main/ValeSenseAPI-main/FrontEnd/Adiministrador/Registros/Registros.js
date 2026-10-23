@@ -104,3 +104,4 @@ document.getElementById('exportRegistrosBtn').addEventListener('click', () => {
 });
 
 carregarRegistros();
+

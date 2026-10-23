@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../role-visual.css">
+  <link rel="stylesheet" href="../admin-sidebar.css">
 </head>
 <body data-login-path="../Login/Login.html">
   <header class="topbar">
@@ -34,18 +35,17 @@
           <a href="../Registros/Registros.html" class="nav-item">Registros de acesso</a>
         </details>
         <details class="nav-group">
-          <summary>Monitoramento (área do administrador)</summary>
+          <summary>Acompanhamento</summary>
+          <a href="../Acompanhamento/Analistas/Analistas.html" class="nav-item">Analistas</a>
+          <a href="../Acompanhamento/Produtores/Produtores.html" class="nav-item">Produtores</a>
           <a href="../Monitoramento/Dashboard/Dashboard.html#home" class="nav-item">Dashboard climático</a>
           <a href="../Monitoramento/Dashboard/Dashboard.html#sensores" class="nav-item">Sensores monitorados</a>
           <a href="../Monitoramento/Mapas/Mapas.html" class="nav-item">Mapas</a>
           <a href="../Monitoramento/Registro/Registro.html" class="nav-item">Histórico de leituras</a>
           <a href="../Monitoramento/Frutas/Frutas.html" class="nav-item">Frutas</a>
-        </details>
-        <details class="nav-group">
-          <summary>Operação agrícola (área do administrador)</summary>
           <a href="../Operacao/Home/Home.html" class="nav-item">Resumo operacional</a>
           <a href="../Operacao/Plantacoes/Plantacoes.html" class="nav-item">Plantações</a>
-          <a href="../Operacao/Colheita/Colheita.html" class="nav-item">Janelas de safra</a>
+          <a href="../Operacao/Colheita/Colheita.html" class="nav-item">Safra</a>
           <a href="../Operacao/Mercado/Mercado.html" class="nav-item">Mercado</a>
           <a href="../Operacao/Alertas/Alertas.html" class="nav-item">Alertas</a>
         </details>
@@ -96,5 +96,12 @@
   <script src="../../api-client.js"></script>
   <script src="../auth-guard.js"></script>
   <script src="Home.js"></script>
+  <script src="../admin-sidebar.js"></script>
 </body>
 </html>
+
+
+
+
+
+

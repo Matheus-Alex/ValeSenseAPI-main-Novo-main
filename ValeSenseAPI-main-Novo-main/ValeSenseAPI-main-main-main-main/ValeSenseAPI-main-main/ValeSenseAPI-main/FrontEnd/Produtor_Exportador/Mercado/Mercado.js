@@ -182,3 +182,4 @@ new MutationObserver(() => {
 $("#marketProduct").addEventListener("change", renderMarket);
 $("#marketDays").addEventListener("change", loadMarket);
 loadMarket();
+
